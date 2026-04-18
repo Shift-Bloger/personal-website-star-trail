@@ -15,7 +15,7 @@ export default function Home() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.5 },
+      transition: { staggerChildren: 0.2, delayChildren: 0.1 },
     },
   };
 
@@ -25,19 +25,19 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#030712] text-slate-200 selection:bg-cyan-500/30">
+    <main className="relative min-h-screen bg-[#030712] text-slate-200 selection:bg-cyan-500/30 overflow-hidden">
       {/* 3D Background */}
-      <div className="fixed inset-0 z-0">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <StarTrail />
       </div>
 
       {/* Content Overlay */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 py-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 h-screen overflow-y-auto pointer-events-auto scroll-smooth scrollbar-hide">
         
         {/* HERO SECTION */}
         <section className="min-h-[80vh] flex flex-col justify-center">
           <motion.div
-            initial="hidden"
+            initial="visible"
             animate="visible"
             variants={containerVariants}
             className="max-w-4xl"
@@ -74,7 +74,7 @@ export default function Home() {
         {/* PROJECTS SECTION */}
         <section className="py-24 border-t border-slate-800/50">
           <motion.div
-            initial="hidden"
+            initial="visible"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
@@ -114,7 +114,7 @@ export default function Home() {
         {/* PRODUCTS SECTION */}
         <section className="py-24 border-t border-slate-800/50">
           <motion.div
-            initial="hidden"
+            initial="visible"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
